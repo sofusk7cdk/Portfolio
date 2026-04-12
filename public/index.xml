@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blowfish</title>
-    <link>https://sofusk7cdk.github.io/Portfolio/</link>
-    <description>Recent content on Blowfish</description>
+    <title>Datamatiker Portfolio on Blowfish</title>
+    <link>http://localhost:1313/Portfolio/</link>
+    <description>Recent content in Datamatiker Portfolio on Blowfish</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>© 2026 </copyright>
-    <atom:link href="https://sofusk7cdk.github.io/Portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© 2026 Sofus Larsen</copyright>
+    <atom:link href="http://localhost:1313/Portfolio/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title></title>
-      <link>https://sofusk7cdk.github.io/Portfolio/project/</link>
+      <title>Welcome to Blowfish!</title>
+      <link>http://localhost:1313/Portfolio/project/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://sofusk7cdk.github.io/Portfolio/project/</guid>
+      <guid>http://localhost:1313/Portfolio/project/</guid>
       <description></description>
       
     </item>
