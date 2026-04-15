@@ -15,21 +15,21 @@
 
   
   
-    <title>Series &middot; Blowfish</title>
-    <meta name="title" content="Series &middot; Blowfish">
+    <title>RAG & Chatbots &middot; Blowfish</title>
+    <meta name="title" content="RAG & Chatbots &middot; Blowfish">
   
 
   
   
-    <meta name="description" content="Min Datamatiker Portfolio">
+    <meta name="description" content="Udvikling af vores egen chatbot med RAG (Retrieval-Augmented Generation) og vores egen knowledge base.">
   
   
   
   
-  <link rel="canonical" href="http://localhost:1313/Portfolio/series/">
+  <link rel="canonical" href="http://localhost:1313/Portfolio/rag/">
   
     
-      <link rel="alternate" type="application/rss+xml" href="/Portfolio/series/index.xml" title="Blowfish" />
+      <link rel="alternate" type="application/rss+xml" href="/Portfolio/rag/index.xml" title="Blowfish" />
   
 
   
@@ -39,17 +39,17 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/Portfolio/series/">
+  <meta property="og:url" content="http://localhost:1313/Portfolio/rag/">
   <meta property="og:site_name" content="Blowfish">
-  <meta property="og:title" content="Series">
-  <meta property="og:description" content="Min Datamatiker Portfolio">
+  <meta property="og:title" content="RAG & Chatbots">
+  <meta property="og:description" content="Udvikling af vores egen chatbot med RAG (Retrieval-Augmented Generation) og vores egen knowledge base.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="website">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Series">
-  <meta name="twitter:description" content="Min Datamatiker Portfolio">
+  <meta name="twitter:title" content="RAG & Chatbots">
+  <meta name="twitter:description" content="Udvikling af vores egen chatbot med RAG (Retrieval-Augmented Generation) og vores egen knowledge base.">
 
   
   
@@ -199,12 +199,12 @@
   [{
     "@context": "https://schema.org",
     "@type": "Article",
-    "articleSection": "Series",
-    "name": "Series",
-    "headline": "Series",
-    
+    "articleSection": "RAG \u0026 Chatbots",
+    "name": "RAG \u0026 Chatbots",
+    "headline": "RAG \u0026 Chatbots",
+    "description": "Udvikling af vores egen chatbot med RAG (Retrieval-Augmented Generation) og vores egen knowledge base.",
     "inLanguage": "en",
-    "url" : "http://localhost:1313/Portfolio/series/",
+    "url" : "http://localhost:1313/Portfolio/rag/",
     "author" : {
       "@type": "Person",
       "name": "Sofus Larsen"
@@ -218,7 +218,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "0"
+    "wordCount": "280"
   }]
   </script>
 
@@ -472,9 +472,15 @@
         
   
   
-  <header class="mt-5">
+  
+
+  
+  
+
+  
+  <header>
     
-    <h1 class="mt-5 text-4xl font-extrabold text-neutral-900 dark:text-neutral">Series</h1>
+    <h1 class="mt-5 text-4xl font-extrabold text-neutral-900 dark:text-neutral">RAG &amp; Chatbots</h1>
     <div class="mt-1 mb-2 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
 
@@ -506,13 +512,84 @@
 
     </div>
   </header>
-  
 
   
-
-    <section class="flex flex-wrap max-w-prose -mx-2 overflow-hidden">
+  
+  
+  <section class="mt-0 prose flex max-w-full flex-col dark:prose-invert lg:flex-row mb-10">
+    
+    <div class="min-w-0 min-h-0 max-w-prose w-full">
       
+<h1 class="relative group">Udforskning af RAG til vores egen chatbot
+    <div id="udforskning-af-rag-til-vores-egen-chatbot" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#udforskning-af-rag-til-vores-egen-chatbot" aria-label="Anchor">#</a>
+    </span>
+    
+</h1>
+<p>Vi har arbejdet på at skabe vores egen chatbot ved hjælp af Retrieval-Augmented Generation (RAG) baseret på vores egen vidensbase. For at finde den bedste løsning har vi afprøvet tre forskellige værktøjer og platforme:</p>
+
+<h2 class="relative group">1. ChatGPT&rsquo;s Indbyggede RAG (Custom GPT)
+    <div id="1-chatgpts-indbyggede-rag-custom-gpt" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#1-chatgpts-indbyggede-rag-custom-gpt" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>Vi startede med at bygge en <strong>Custom GPT</strong> direkte gennem OpenAI&rsquo;s interface.</p>
+<ul>
+<li><strong>Beskrivelse:</strong> Gør det muligt at uploade egne dokumenter og filer direkte, hvorefter ChatGPT automatisk søger i dataen for at understøtte sine svar.</li>
+<li><strong>Styrker:</strong> Det er utroligt hurtigt at sætte op og kræver ingen kodning. Det er en fantastisk måde at prototype og teste på.</li>
+<li><strong>Oplevelse:</strong> Perfekt til intern brug og for hurtigt at mærke &ldquo;magien&rdquo; ved RAG, men begrænset i forhold til integrationer på egne hjemmesider.</li>
+</ul>
+
+<h2 class="relative group">2. CustomGPT.ai
+    <div id="2-customgptai" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#2-customgptai" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>For at få en mere dedikeret og skræddersyet løsning testede vi <strong>CustomGPT.ai</strong>.</p>
+<ul>
+<li><strong>Beskrivelse:</strong> En platform skræddersyet udelukkende til at bygge RAG-løsninger. Den indekserer ens hjemmeside, dokumenter og data, og genererer en chatbot.</li>
+<li><strong>Styrker:</strong> Leverer meget præcise svar baseret <em>kun</em> på den data man fodrer den med, og den er god til at fremhæve kildehenvisninger.</li>
+<li><strong>Oplevelse:</strong> Ideel som en &ldquo;plug-and-play&rdquo; erhvervsløsning, der nemt kan indlejres (embeddes) på en hjemmeside, uden at hallucinationer bliver et problem.</li>
+</ul>
+
+<h2 class="relative group">3. Dify.ai
+    <div id="3-difyai" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#3-difyai" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>Til sidst kiggede vi på <strong>Dify.ai</strong>, som giver meget mere frihed og kontrol.</p>
+<ul>
+<li><strong>Beskrivelse:</strong> En open-source platform til at udvikle LLM-applikationer. Her kan man designe hele sit eget workflow grafisk.</li>
+<li><strong>Styrker:</strong> Vi får fuld kontrol over hele RAG-pipelinen (hvordan tekster deles op - chunking, hvilke embeddings der bruges, og avancerede prompts).</li>
+<li><strong>Oplevelse:</strong> Det bedste værktøj når man vil have dyb kontrol over arkitekturen og lave komplekse flows eller interagere dybt med eksterne API&rsquo;er.</li>
+</ul>
+
+    </div>
+  </section>
+
+  
+  
+    <section class="mt-10 prose dark:prose-invert">
+      <p class="py-8 border-t">
+        <em>There are no articles to list here yet.</em>
+      </p>
     </section>
+  
   
 
         
