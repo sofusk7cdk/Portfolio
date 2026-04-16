@@ -25,3 +25,9 @@ Til sidst kiggede vi på **Dify.ai**, som giver meget mere frihed og kontrol.
 - **Styrker:** Vi får fuld kontrol over hele RAG-pipelinen (hvordan tekster deles op - chunking, hvilke embeddings der bruges, og avancerede prompts).
 - **Oplevelse:** Det bedste værktøj når man vil have dyb kontrol over arkitekturen og lave komplekse flows eller interagere dybt med eksterne API'er.
 
+## Min Chat bot
+Min chat bot har instruktioner, som "Superliga ekspert" og kan besvare på superliga spørgsmål.
+
+Knowledge er hentet fra "https://superliga.dk/".
+
+Den virker faktisk meget fint, men den har svært ved at forstå klubbernes rangering. 
