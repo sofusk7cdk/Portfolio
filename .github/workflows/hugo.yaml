@@ -118,4 +118,5 @@ jobs:
         env:
           DIFY_API_KEY: ${{ secrets.DIFY_API_KEY }}
           DIFY_DATASET_ID: ${{ secrets.DIFY_DATASET_ID }}
+          JINA_API_KEY: ${{ secrets.JINA_API_KEY }}
         run: mvn -q compile exec:java -Dexec.mainClass="RagUpdater"

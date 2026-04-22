@@ -6,6 +6,7 @@ public class RagUpdater {
         String sitemapUrl = "https://sofusk7cdk.github.io/Portfolio/sitemap.xml";
         String difyApiKey = System.getenv("DIFY_API_KEY");
         String datasetId  = System.getenv("DIFY_DATASET_ID");
+        String jinaApiKey = System.getenv("JINA_API_KEY");
 
         Sitemap sitemap = new Sitemap(sitemapUrl);
         List<String> currentUrls = sitemap.fetchUrls();
@@ -21,7 +22,7 @@ public class RagUpdater {
             return;
         }
 
-        DifyClient dify = new DifyClient(difyApiKey, datasetId);
+        DifyClient dify = new DifyClient(difyApiKey, datasetId, jinaApiKey);
         for (String url : newUrls) {
             dify.addWebDocument(url);
             System.out.println("Tilføjet til Dify: " + url);
