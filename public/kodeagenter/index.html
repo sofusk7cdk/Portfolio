@@ -4,8 +4,7 @@
   dir="ltr"
   class="scroll-smooth"
   data-default-appearance="light"
-  data-auto-appearance="true"><head>
-	<meta name="generator" content="Hugo 0.160.1"><script src="/Portfolio/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=Portfolio/livereload" data-no-instant defer></script>
+  data-auto-appearance="true"><head><script src="/Portfolio/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=Portfolio/livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
     <meta http-equiv="content-language" content="en">
@@ -16,24 +15,21 @@
 
   
   
-    <title>Blowfish</title>
-    <meta name="title" content="Blowfish">
+    <title>AI-baserede Kodeagenter &middot; Blowfish</title>
+    <meta name="title" content="AI-baserede Kodeagenter &middot; Blowfish">
   
 
   
   
-    <meta name="description" content="Min Datamatiker Portfolio">
+    <meta name="description" content="Introduktion til kodeagenter som Claude Code og OpenAI Codex – og hvordan vi brugte dem til at løse rigtige opgaver i undervisningen.">
   
   
   
   
-  <link rel="canonical" href="http://localhost:1313/Portfolio/">
-  
-    
-      <link rel="alternate" type="application/rss+xml" href="/Portfolio/index.xml" title="Blowfish" />
+  <link rel="canonical" href="http://localhost:1313/Portfolio/kodeagenter/">
   
     
-      <link rel="alternate" type="application/json" href="/Portfolio/index.json" title="Blowfish" />
+      <link rel="alternate" type="application/rss+xml" href="/Portfolio/kodeagenter/index.xml" title="Blowfish" />
   
 
   
@@ -43,17 +39,17 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/Portfolio/">
+  <meta property="og:url" content="http://localhost:1313/Portfolio/kodeagenter/">
   <meta property="og:site_name" content="Blowfish">
-  <meta property="og:title" content="Blowfish">
-  <meta property="og:description" content="Min Datamatiker Portfolio">
+  <meta property="og:title" content="AI-baserede Kodeagenter">
+  <meta property="og:description" content="Introduktion til kodeagenter som Claude Code og OpenAI Codex – og hvordan vi brugte dem til at løse rigtige opgaver i undervisningen.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="website">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Blowfish">
-  <meta name="twitter:description" content="Min Datamatiker Portfolio">
+  <meta name="twitter:title" content="AI-baserede Kodeagenter">
+  <meta name="twitter:description" content="Introduktion til kodeagenter som Claude Code og OpenAI Codex – og hvordan vi brugte dem til at løse rigtige opgaver i undervisningen.">
 
   
   
@@ -200,20 +196,30 @@
 
   
   <script type="application/ld+json">
-  {
+  [{
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": "http://localhost:1313/Portfolio/",
-    "name": "Blowfish",
-    "description": "Min Datamatiker Portfolio",
+    "@type": "Article",
+    "articleSection": "AI-baserede Kodeagenter",
+    "name": "AI-baserede Kodeagenter",
+    "headline": "AI-baserede Kodeagenter",
+    "description": "Introduktion til kodeagenter som Claude Code og OpenAI Codex – og hvordan vi brugte dem til at løse rigtige opgaver i undervisningen.",
     "inLanguage": "en",
-    "url": "http://localhost:1313/Portfolio/",
-    
-    "publisher" : {
+    "url" : "http://localhost:1313/Portfolio/kodeagenter/",
+    "author" : {
       "@type": "Person",
       "name": "Sofus Larsen"
-    }
-  }
+    },
+    
+    
+    
+    
+    
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "667"
+  }]
   </script>
 
 
@@ -536,35 +542,217 @@
         
   
   
+  
+
+  
+  
+
+  
+  <header>
     
-<article
-  class="
-    h-full
-   flex flex-col items-center justify-center text-center">
-  <header class="relative px-1 py-1 flex flex-col items-center mb-3">
-    
-    <h1 class="text-4xl font-extrabold">
-      Sofus Larsen
-    </h1>
-    
-      <h2 class="text-xl text-neutral-500 dark:text-neutral-400">
-        Datamatikerstuderende &amp; Udvikler
-      </h2>
-    
-    <div class="mt-1 text-2xl">
+    <h1 class="mt-5 text-4xl font-extrabold text-neutral-900 dark:text-neutral">AI-baserede Kodeagenter</h1>
+    <div class="mt-1 mb-2 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
 
-    </div>
-  </header>
-  <section class="prose dark:prose-invert w-full"></section>
-</article>
-<section>
+
+
+
+
+  
   
 
 
 
-</section>
+  
 
+  
+
+  
+
+  
+
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+  </div>
+
+
+    </div>
+  </header>
+
+  
+  
+  
+  <section class="mt-0 prose flex max-w-full flex-col dark:prose-invert lg:flex-row mb-10">
+    
+    <div class="min-w-0 min-h-0 max-w-prose w-full">
+      <p>Kodeagenter er AI-systemer, der ikke bare besvarer spørgsmål, men aktivt kan skrive, køre, debugge og refaktorere kode. I stedet for at fungere som et avanceret autocomplete arbejder de som en samarbejdspartner, der forstår et helt projekts kontekst og kan tage beslutninger på tværs af filer.</p>
+
+<h2 class="relative group">Hvad er en kodeagent?
+    <div id="hvad-er-en-kodeagent" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#hvad-er-en-kodeagent" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>En kodeagent kombinerer en stor sprogmodel med evnen til at:</p>
+<ul>
+<li><strong>Læse og skrive filer</strong> direkte i projektet</li>
+<li><strong>Køre kommandoer</strong> i terminalen og reagere på output</li>
+<li><strong>Søge i kodebasen</strong> for at forstå arkitektur og afhængigheder</li>
+<li><strong>Iterere selvstændigt</strong> – fejler noget, prøver agenten igen</li>
+</ul>
+<p>Det adskiller sig fra et simpelt chatvindue, fordi agenten opererer i dit faktiske udviklingsmiljø frem for i en isoleret sandbox.</p>
+
+<h2 class="relative group">De agenter vi arbejdede med
+    <div id="de-agenter-vi-arbejdede-med" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#de-agenter-vi-arbejdede-med" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">Claude Code (Anthropic)
+    <div id="claude-code-anthropic" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#claude-code-anthropic" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Claude Code kører direkte i terminalen og har adgang til hele arbejdsbiblioteket. Den er stærk til at forstå store kodebaser og forklare sine valg undervejs. Den er særligt god til refactoring og arkitekturspørgsmål, fordi den holder et overblik over sammenhænge på tværs af filer.</p>
+
+<h3 class="relative group">OpenAI Codex
+    <div id="openai-codex" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#openai-codex" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Codex er OpenAI&rsquo;s kodespecialiserede model og grundlaget for GitHub Copilot. Den er hurtig til at generere kodeblokke og fungerer godt til velafgrænsede opgaver. Vi brugte den via CLI-interfacet til at sammenligne dens output direkte med Claude&rsquo;s.</p>
+
+<h2 class="relative group">Hvad vi lavede i undervisningen
+    <div id="hvad-vi-lavede-i-undervisningen" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#hvad-vi-lavede-i-undervisningen" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+
+<h3 class="relative group">Trin 1: Introduktion og sammenligning
+    <div id="trin-1-introduktion-og-sammenligning" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#trin-1-introduktion-og-sammenligning" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Vi startede med en gennemgang af, hvad kodeagenter overhovedet er, og hvordan Claude og Codex adskiller sig i tilgang og arkitektur. Hvornår er den ene bedre end den anden? Hvad koster det at køre dem? Og hvad betyder det egentlig, at en model er &ldquo;agent&rdquo; frem for blot &ldquo;assistent&rdquo;?</p>
+
+<h3 class="relative group">Trin 2: Cupcake-projektet
+    <div id="trin-2-cupcake-projektet" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#trin-2-cupcake-projektet" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Som skolen har et eksisterende <strong>cupcake-projekt</strong> – en webapplikation vi kender fra tidligere undervisning – brugte vi det som benchmark. Vi bad først <strong>Claude Code</strong> om at implementere projektet fra bunden og observerede, hvordan den navigerede opgaven: hvilke filer den oprettede, hvilke valg den traf om struktur, og hvor den bad om afklaring.</p>
+<p>Derefter gentog vi øvelsen med <strong>Codex</strong> og løste den samme opgave.</p>
+<p><strong>Sammenligning af resultaterne:</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>Kriterium</th>
+          <th>Claude Code</th>
+          <th>Codex</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Kodestruktur</td>
+          <td>Organiseret i lag, fulgte MVC</td>
+          <td>Mere direkte, færre lag</td>
+      </tr>
+      <tr>
+          <td>Forklaringer undervejs</td>
+          <td>Detaljerede kommentarer</td>
+          <td>Kortere, mere kodecentreret</td>
+      </tr>
+      <tr>
+          <td>Fejlhåndtering</td>
+          <td>Proaktiv – tilføjede validering selv</td>
+          <td>Tilføjede det vi bad om</td>
+      </tr>
+      <tr>
+          <td>Samlet indtryk</td>
+          <td>God til komplekse arkitekturbeslutninger</td>
+          <td>Hurtig til afgrænsede opgaver</td>
+      </tr>
+  </tbody>
+</table>
+<p>Det var tydeligt, at de to agenter har forskellig &ldquo;stil&rdquo; – Claude tenderer mod at tænke i helheden, mens Codex er mere direkte og effektiv til velspecificerede delproblemer.</p>
+
+<h3 class="relative group">Trin 3: Meditationsopgaven
+    <div id="trin-3-meditationsopgaven" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#trin-3-meditationsopgaven" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Vores lærer stillede os en selvstændig opgave: vi skulle vælge <strong>én kodeagent</strong> og bruge den til at bygge en <strong>quiz</strong> inspireret af en eksisterende meditationshjemmeside – i hvert vores helt nye projekt. Formålet var at undersøge, hvordan det egentlig er at arbejde med en agent på en opgave man ikke selv har specificeret til mindste detalje.</p>
+<p>Jeg valgte <strong>Claude Code</strong> og brugte den til at bygge quizzen fra bunden i et nyt projekt. Erfaringerne:</p>
+<ul>
+<li><strong>Hvad gik godt:</strong> Agenten hjalp med at strukturere applikationen og foreslog fornuftige løsninger, jeg ikke selv havde tænkt på. Den var god til at holde styr på sammenhængen, efterhånden som projektet voksede.</li>
+<li><strong>Hvad var udfordrende:</strong> Det krævede præcise prompts. Var opgaven for åben, tog agenten beslutninger, der ikke altid passede til mine intentioner – og så skulle jeg bruge tid på at korrigere kursen.</li>
+<li><strong>Konklusion:</strong> Kodeagenter er stærke redskaber, men de kræver, at man som udvikler stadig tager ansvar for arkitekturen og retningen. Agenten er en produktiv samarbejdspartner – ikke en erstatning for at tænke selv.</li>
+</ul>
+
+<h2 class="relative group">Samarbejde mellem udvikler og agent
+    <div id="samarbejde-mellem-udvikler-og-agent" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#samarbejde-mellem-udvikler-og-agent" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>Den vigtigste lektie fra undervisningen var, at den bedste brug af kodeagenter ikke er at &ldquo;bare lade den køre&rdquo;. Det effektive mønster er:</p>
+<ol>
+<li><strong>Udvikler definerer mål og afgrænsning</strong> – hvad skal løses, og hvad er out of scope?</li>
+<li><strong>Agent genererer et forslag</strong> – kode, arkitektur, tests</li>
+<li><strong>Udvikler reviewer og godkender</strong> – forstår du koden, inden du accepterer den?</li>
+<li><strong>Iteration</strong> – stil opfølgende spørgsmål, bed om alternativer, juster</li>
+</ol>
+<p>Kodeagenter fremskynder det tekniske arbejde markant, men den faglige vurdering forbliver udviklerens ansvar.</p>
+
+    </div>
+  </section>
+
+  
+  
+    <section class="mt-10 prose dark:prose-invert">
+      <p class="py-8 border-t">
+        <em>There are no articles to list here yet.</em>
+      </p>
+    </section>
+  
   
 
         

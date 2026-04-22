@@ -3,7 +3,6 @@ title: "RAG-demo: Automatiseret opdatering af Dify-bot"
 description: "Dokumentation af et automatiseret Java-workflow der holder en Dify RAG-bot synkroniseret med portfolioens indhold via sitemap-parsing."
 ---
 
-# RAG-demo: Automatiseret opdatering af Dify-bot
 
 Dette projekt dokumenterer, hvordan jeg har bygget et automatiseret workflow i Java, der sørger for at min RAG-bot på Dify altid afspejler det nyeste indhold på min portfolio.
 

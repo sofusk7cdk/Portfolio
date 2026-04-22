@@ -25,6 +25,11 @@
   pageRef = "/rag-demo"
   weight = 30
 
+[[main]]
+  name = "Kodeagenter"
+  pageRef = "/kodeagenter"
+  weight = 40
+
 #[[main]]
 #  name = "Blog"
 #  pageRef = "posts"

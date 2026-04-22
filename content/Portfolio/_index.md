@@ -11,4 +11,9 @@ Jeg er datamatikerstuderende på 4. semester og synes det er fedt at kode. Her p
 - **Sprog**: Java, JavaScript, C#(Unity)
 - **Værktøjer**: Git, Docker
 
-Her bliver der lagt nogle af mine projekter.
+## Projekter
+
+### Meditation Quiz
+Et quiz-projekt bygget med hjælp fra en AI-kodeagent som del af undervisningen i kodeagenter.
+
+[Se projektet på GitHub](https://github.com/sofusk7cdk/Meditation-Quiz)
