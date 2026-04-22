@@ -16,9 +16,14 @@
   weight = 10
 
 [[main]]
-  name = "RAG Lesson 2"
+  name = "RAG"
   pageRef = "/rag"
   weight = 20
+
+[[main]]
+  name = "RAG-demo"
+  pageRef = "/rag-demo"
+  weight = 30
 
 #[[main]]
 #  name = "Blog"
