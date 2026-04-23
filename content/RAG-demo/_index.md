@@ -182,3 +182,7 @@ jobs:
 ## Resultat
 
 Botten har nu altid et opdateret billede af portfolioens indhold. Når en besøgende stiller spørgsmål om mine projekter, kan Dify hente præcis og aktuel information frem – uden at jeg behøver at løfte en finger efter et nyt deploy.
+
+## Min Chat Bot
+Eksempel på et svar:
+![alt text](image.png)
