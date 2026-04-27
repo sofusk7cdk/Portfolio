@@ -30,6 +30,11 @@
   pageRef = "/kodeagenter"
   weight = 40
 
+[[main]]
+  name = "LLM + API"
+  pageRef = "/llm-api-integration"
+  weight = 50
+
 #[[main]]
 #  name = "Blog"
 #  pageRef = "posts"
