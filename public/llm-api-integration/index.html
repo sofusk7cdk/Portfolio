@@ -15,13 +15,13 @@
 
   
   
-    <title>LLM &#43; Eksternt API &middot; Blowfish</title>
-    <meta name="title" content="LLM &#43; Eksternt API &middot; Blowfish">
+    <title>LLM API-integration &middot; Blowfish</title>
+    <meta name="title" content="LLM API-integration &middot; Blowfish">
   
 
   
   
-    <meta name="description" content="To cases på hvordan man kan integrere et LLM i en eksisterende applikation via eksternt API – et mailsystem og en analyse af skolens chatbots.">
+    <meta name="description" content="Hvordan man kalder et eksternt LLM-API og bruger sprogmodellen til konkrete opgaver i sin applikation.">
   
   
   
@@ -41,15 +41,15 @@
   
   <meta property="og:url" content="http://localhost:1313/Portfolio/llm-api-integration/">
   <meta property="og:site_name" content="Blowfish">
-  <meta property="og:title" content="LLM &#43; Eksternt API">
-  <meta property="og:description" content="To cases på hvordan man kan integrere et LLM i en eksisterende applikation via eksternt API – et mailsystem og en analyse af skolens chatbots.">
+  <meta property="og:title" content="LLM API-integration">
+  <meta property="og:description" content="Hvordan man kalder et eksternt LLM-API og bruger sprogmodellen til konkrete opgaver i sin applikation.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="website">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="LLM &#43; Eksternt API">
-  <meta name="twitter:description" content="To cases på hvordan man kan integrere et LLM i en eksisterende applikation via eksternt API – et mailsystem og en analyse af skolens chatbots.">
+  <meta name="twitter:title" content="LLM API-integration">
+  <meta name="twitter:description" content="Hvordan man kalder et eksternt LLM-API og bruger sprogmodellen til konkrete opgaver i sin applikation.">
 
   
   
@@ -199,10 +199,10 @@
   [{
     "@context": "https://schema.org",
     "@type": "Article",
-    "articleSection": "LLM \u002b Eksternt API",
-    "name": "LLM \u002b Eksternt API",
-    "headline": "LLM \u002b Eksternt API",
-    "description": "To cases på hvordan man kan integrere et LLM i en eksisterende applikation via eksternt API – et mailsystem og en analyse af skolens chatbots.",
+    "articleSection": "LLM API-integration",
+    "name": "LLM API-integration",
+    "headline": "LLM API-integration",
+    "description": "Hvordan man kalder et eksternt LLM-API og bruger sprogmodellen til konkrete opgaver i sin applikation.",
     "inLanguage": "en",
     "url" : "http://localhost:1313/Portfolio/llm-api-integration/",
     "author" : {
@@ -218,7 +218,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "994"
+    "wordCount": "682"
   }]
   </script>
 
@@ -357,7 +357,7 @@
       
       class="flex items-center bf-icon-color-hover"
       aria-label="LLM &#43; API"
-      title="LLM &#43; Eksternt API">
+      title="LLM API-integration">
       
       
         <span class="text-base font-medium break-normal">
@@ -536,7 +536,7 @@
         
         class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
         
-        <span title="LLM &#43; Eksternt API" class="text-2xl font-bold tracking-tight">
+        <span title="LLM API-integration" class="text-2xl font-bold tracking-tight">
           LLM + API
         </span>
         
@@ -585,7 +585,7 @@
   
   <header>
     
-    <h1 class="mt-5 text-4xl font-extrabold text-neutral-900 dark:text-neutral">LLM &#43; Eksternt API</h1>
+    <h1 class="mt-5 text-4xl font-extrabold text-neutral-900 dark:text-neutral">LLM API-integration</h1>
     <div class="mt-1 mb-2 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
 
@@ -624,317 +624,237 @@
   <section class="mt-0 prose flex max-w-full flex-col dark:prose-invert lg:flex-row mb-10">
     
     <div class="min-w-0 min-h-0 max-w-prose w-full">
-      
-<h1 class="relative group">LLM i eksisterende applikationer
-    <div id="llm-i-eksisterende-applikationer" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#llm-i-eksisterende-applikationer" aria-label="Anchor">#</a>
-    </span>
-    
-</h1>
-<p>En af de mest praktiske anvendelser af store sprogmodeller er ikke at bygge noget helt nyt, men at <strong>sætte dem ind i systemer der allerede eksisterer</strong>. Frem for at erstatte kendte workflows, tilføjer LLM&rsquo;en et lag af forståelse og analyse, som ellers ville kræve manuel menneskelig vurdering.</p>
-<p>I dette forløb arbejdede vi med to cases, der begge illustrerer det mønster – men som også viste, at integration i praksis bringer udfordringer med sig, man ikke altid ser i teorien.</p>
-<hr>
+      <p>En stor sprogmodel (LLM) behøver ikke bo lokalt i din applikation. De fleste udbydere – Anthropic, OpenAI, Google m.fl. – stiller deres modeller til rådighed via et HTTP API, som du kan kalde fra næsten ethvert programmeringssprog. Det betyder, at du kan tilføje AI-funktioner til en eksisterende applikation uden at håndtere modelhosting selv.</p>
 
-<h2 class="relative group">Case 1: Mailsystem med automatisk prioritering
-    <div id="case-1-mailsystem-med-automatisk-prioritering" class="anchor"></div>
+<h2 class="relative group">Hvad er et LLM-API?
+    <div id="hvad-er-et-llm-api" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#case-1-mailsystem-med-automatisk-prioritering" aria-label="Anchor">#</a>
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#hvad-er-et-llm-api" aria-label="Anchor">#</a>
     </span>
     
 </h2>
-
-<h3 class="relative group">Idéen
-    <div id="idéen" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#id%c3%a9en" aria-label="Anchor">#</a>
-    </span>
-    
-</h3>
-<p>Mange organisationer modtager store mængder e-mail, og det er tidskrævende at afgøre, hvad der kræver handling nu. Idéen var at bygge et system, der:</p>
+<p>Et LLM-API er en REST-tjeneste, der modtager en besked (en <em>prompt</em>) og returnerer modellens svar som JSON. Konceptuelt ligner det et hvilket som helst andet web-API:</p>
 <ol>
-<li><strong>Lytter på indkommende mails</strong></li>
-<li><strong>Bruger et LLM til at vurdere</strong>, om mailen er vigtig eller ej</li>
-<li><strong>Opretter automatisk en todo</strong>, hvis mailen kræver handling</li>
+<li>Du sender en HTTP POST-request med din prompt og eventuelle parametre.</li>
+<li>Serveren sender prompten videre til modellen.</li>
+<li>Du modtager svaret og bruger det i din applikation.</li>
 </ol>
-<p>Flowet ville se sådan ud:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Ny mail ankommer
-</span></span><span class="line"><span class="cl">     │
-</span></span><span class="line"><span class="cl">     ▼
-</span></span><span class="line"><span class="cl">LLM analyserer indhold
-</span></span><span class="line"><span class="cl">     │
-</span></span><span class="line"><span class="cl">     ├─ Vigtig → Opret todo-opgave
-</span></span><span class="line"><span class="cl">     │
-</span></span><span class="line"><span class="cl">     └─ Ikke vigtig → Ignorer / arkiver</span></span></code></pre></div></div>
+<p>Det kræver som regel en API-nøgle til autentifikation, og du betaler per token (omtrent per ord) du sender og modtager.</p>
 
-<h3 class="relative group">Teknisk tilgang
-    <div id="teknisk-tilgang" class="anchor"></div>
+<h2 class="relative group">Eksempel: Anthropic Claude API
+    <div id="eksempel-anthropic-claude-api" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#teknisk-tilgang" aria-label="Anchor">#</a>
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#eksempel-anthropic-claude-api" aria-label="Anchor">#</a>
     </span>
     
-</h3>
-<p>Modellen ville få mailens emne og brødtekst som input og returnere en struktureret vurdering:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="n">model</span><span class="o">=</span><span class="s2">&#34;claude-opus-4-7&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">system</span><span class="o">=</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Du er en assistent, der vurderer om en e-mail kræver handling. &#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Svar udelukkende med JSON: {</span><span class="se">\&#34;</span><span class="s2">vigtig</span><span class="se">\&#34;</span><span class="s2">: true/false, </span><span class="se">\&#34;</span><span class="s2">grund</span><span class="se">\&#34;</span><span class="s2">: </span><span class="se">\&#34;</span><span class="s2">...</span><span class="se">\&#34;</span><span class="s2">, </span><span class="se">\&#34;</span><span class="s2">todo</span><span class="se">\&#34;</span><span class="s2">: </span><span class="se">\&#34;</span><span class="s2">...</span><span class="se">\&#34;</span><span class="s2">}&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">),</span>
+</h2>
+<p>Her er et minimalt Python-eksempel med Anthropics officielle SDK:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">anthropic</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">client</span> <span class="o">=</span> <span class="n">anthropic</span><span class="o">.</span><span class="n">Anthropic</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s2">&#34;din-api-nøgle&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">model</span><span class="o">=</span><span class="s2">&#34;claude-sonnet-4-6&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="s2">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;user&#34;</span><span class="p">,</span> <span class="s2">&#34;content&#34;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&#34;Emne: </span><span class="si">{</span><span class="n">subject</span><span class="si">}</span><span class="se">\n\n</span><span class="si">{</span><span class="n">body</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="s2">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;user&#34;</span><span class="p">,</span> <span class="s2">&#34;content&#34;</span><span class="p">:</span> <span class="s2">&#34;Forklar hvad et REST API er i to sætninger.&#34;</span><span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span></span></span></code></pre></div></div>
-<p>Hvis <code>vigtig</code> er <code>true</code>, ville systemet kalde et eksternt opgave-API (fx Todoist eller Microsoft To Do) og oprette en opgave med den formulering, modellen foreslår.</p>
-
-<h3 class="relative group">Udfordringerne – GDPR og datahåndtering
-    <div id="udfordringerne--gdpr-og-datahåndtering" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#udfordringerne--gdpr-og-datah%c3%a5ndtering" aria-label="Anchor">#</a>
-    </span>
-    
-</h3>
-<p>Det var her, det for alvor blev komplekst. E-mails indeholder <strong>personoplysninger</strong>, og det rejste en række problemer:</p>
-<ul>
-<li><strong>Databehandleraftale</strong>: Sender man mailindhold til en ekstern LLM-udbyder (Anthropic, OpenAI osv.), er man forpligtet til at have en databehandleraftale på plads – og sikre sig, at data ikke bruges til træning.</li>
-<li><strong>Formål og lovhjemmel</strong>: GDPR kræver, at der er et klart og legitimt formål med behandlingen. &ldquo;Vi vil gerne sortere mails med AI&rdquo; er ikke i sig selv tilstrækkeligt – der skal være et juridisk grundlag.</li>
-<li><strong>Minimering</strong>: Man bør kun sende det nødvendige til modellen – ikke hele mailkæden med historik, CC-adresser og vedhæftede filer.</li>
-<li><strong>Gennemsigtighed</strong>: Afsendere bør informeres om, at deres mails behandles automatisk af AI.</li>
-</ul>
-<p>Disse udfordringer betød, at systemet i sin fulde form var svært at implementere ansvarligt uden en grundig juridisk og organisatorisk afklaring først. Det er et godt eksempel på, at <strong>teknisk muligt ≠ lovligt eller etisk forsvarligt</strong>.</p>
-
-<h3 class="relative group">Hvad vi lærte
-    <div id="hvad-vi-lærte" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#hvad-vi-l%c3%a6rte" aria-label="Anchor">#</a>
-    </span>
-    
-</h3>
-<p>GDPR er ikke en detalje, man tilføjer til sidst. Det er en designbegrænsning, der skal tænkes ind fra starten. Maildelen viste, at LLM-integration i systemer med personoplysninger kræver et langt større forarbejde, end selve koden gør.</p>
-<hr>
-
-<h2 class="relative group">Case 2: Analyse af skolens chatbots
-    <div id="case-2-analyse-af-skolens-chatbots" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#case-2-analyse-af-skolens-chatbots" aria-label="Anchor">#</a>
-    </span>
-    
-</h2>
-
-<h3 class="relative group">Baggrunden
-    <div id="baggrunden" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#baggrunden" aria-label="Anchor">#</a>
-    </span>
-    
-</h3>
-<p>På skolen har alle semestre på datamatikeruddannelsen adgang til en chatbot bygget med <strong>CustomGPT.ai</strong>. Botten er specialiseret til hvert semesters indhold og hjælper studerende med faglige spørgsmål.</p>
-<p>Problemet var: <strong>vi vidste ikke, hvad der faktisk blev spurgt om</strong>. Hvilke emner stillede de studerende mest spørgsmål til? Hvad forstod de ikke godt nok? Og kunne svarene blive bedre?</p>
-
-<h3 class="relative group">Løsningen
-    <div id="løsningen" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#l%c3%b8sningen" aria-label="Anchor">#</a>
-    </span>
-    
-</h3>
-<p>CustomGPT.ai stiller et API til rådighed, der giver adgang til alle forespørgsler (prompts) der er sendt til botten. Vi brugte det API til at hente historik og sendte det videre til et LLM, der skulle:</p>
-<ul>
-<li><strong>Kategorisere</strong> spørgsmålene i emner</li>
-<li><strong>Identificere mønstre</strong> – hvad spørges der gentagne gange om?</li>
-<li><strong>Foreslå forbedringer</strong> til bottens svar, så de bliver mere afklarende</li>
-</ul>
-
-<h3 class="relative group">Arkitektur
-    <div id="arkitektur" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#arkitektur" aria-label="Anchor">#</a>
-    </span>
-    
-</h3>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">CustomGPT.ai API
-</span></span><span class="line"><span class="cl">      │
-</span></span><span class="line"><span class="cl">      │  GET /conversations  (alle forespørgsler)
-</span></span><span class="line"><span class="cl">      ▼
-</span></span><span class="line"><span class="cl">Python-script henter og strukturerer data
-</span></span><span class="line"><span class="cl">      │
-</span></span><span class="line"><span class="cl">      ▼
-</span></span><span class="line"><span class="cl">LLM analyserer batch af spørgsmål
-</span></span><span class="line"><span class="cl">      │
-</span></span><span class="line"><span class="cl">      ├─ Kategorier &amp; temaer
-</span></span><span class="line"><span class="cl">      ├─ Hyppigt stillede spørgsmål
-</span></span><span class="line"><span class="cl">      └─ Forslag til svarforbedringer
-</span></span><span class="line"><span class="cl">      │
-</span></span><span class="line"><span class="cl">      ▼
-</span></span><span class="line"><span class="cl">Visuel rapport (grafer, ordsky, tabel)</span></span></code></pre></div></div>
-
-<h3 class="relative group">Datahentning fra CustomGPT.ai
-    <div id="datahentning-fra-customgptai" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#datahentning-fra-customgptai" aria-label="Anchor">#</a>
-    </span>
-    
-</h3>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">requests</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">CUSTOMGPT_API_KEY</span> <span class="o">=</span> <span class="s2">&#34;...&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">PROJECT_ID</span> <span class="o">=</span> <span class="s2">&#34;...&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">fetch_conversations</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;https://app.customgpt.ai/api/v1/projects/</span><span class="si">{</span><span class="n">PROJECT_ID</span><span class="si">}</span><span class="s2">/conversations&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&#34;Authorization&#34;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&#34;Bearer </span><span class="si">{</span><span class="n">CUSTOMGPT_API_KEY</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">all_messages</span> <span class="o">=</span> <span class="p">[]</span>
-</span></span><span class="line"><span class="cl">    <span class="n">page</span> <span class="o">=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;page&#34;</span><span class="p">:</span> <span class="n">page</span><span class="p">})</span>
-</span></span><span class="line"><span class="cl">        <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">        <span class="n">messages</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;data&#34;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;data&#34;</span><span class="p">,</span> <span class="p">[])</span>
-</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">messages</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">            <span class="k">break</span>
-</span></span><span class="line"><span class="cl">        <span class="n">all_messages</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="n">page</span> <span class="o">+=</span> <span class="mi">1</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">all_messages</span></span></span></code></pre></div></div>
-
-<h3 class="relative group">LLM-analyse af spørgsmålene
-    <div id="llm-analyse-af-spørgsmålene" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#llm-analyse-af-sp%c3%b8rgsm%c3%a5lene" aria-label="Anchor">#</a>
-    </span>
-    
-</h3>
-<p>Spørgsmålene sendes i batches til modellen med en struktureret prompt:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">analyse_questions</span><span class="p">(</span><span class="n">questions</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="n">joined</span> <span class="o">=</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;- </span><span class="si">{</span><span class="n">q</span><span class="si">}</span><span class="s2">&#34;</span> <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">questions</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">        <span class="n">model</span><span class="o">=</span><span class="s2">&#34;claude-opus-4-7&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="n">system</span><span class="o">=</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;Du er en uddannelsesanalytiker. Du får en liste af spørgsmål stillet til en faglig chatbot. &#34;</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;Returner JSON med: {</span><span class="se">\&#34;</span><span class="s2">kategorier</span><span class="se">\&#34;</span><span class="s2">: [...], </span><span class="se">\&#34;</span><span class="s2">hyppige_temaer</span><span class="se">\&#34;</span><span class="s2">: [...], </span><span class="se">\&#34;</span><span class="s2">forbedringsforslag</span><span class="se">\&#34;</span><span class="s2">: [...]}&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">),</span>
-</span></span><span class="line"><span class="cl">        <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
-</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="s2">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;user&#34;</span><span class="p">,</span> <span class="s2">&#34;content&#34;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&#34;Spørgsmål:</span><span class="se">\n</span><span class="si">{</span><span class="n">joined</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="p">]</span>
-</span></span><span class="line"><span class="cl">    <span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">)</span></span></span></code></pre></div></div>
-
-<h3 class="relative group">Det visuelle output
-    <div id="det-visuelle-output" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#det-visuelle-output" aria-label="Anchor">#</a>
-    </span>
-    
-</h3>
-<p>Resultatet af analysen blev visualiseret, så det var nemt at handle på:</p>
-<ul>
-<li><strong>Søjlediagram</strong> over de mest stillede emner (matplotlib)</li>
-<li><strong>Tabel</strong> med konkrete forbedringsforslag til bottens svar</li>
-<li><strong>Ordsky</strong> over de hyppigste nøgleord i spørgsmålene</li>
-</ul>
-<p>Dette gav et konkret billede af, hvad de studerende kæmpede med, og hvilke dele af pensum der trængte til bedre forklaringer i bottens vidensbase.</p>
-
-<h3 class="relative group">Hvad vi lærte
-    <div id="hvad-vi-lærte-1" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#hvad-vi-l%c3%a6rte-1" aria-label="Anchor">#</a>
-    </span>
-    
-</h3>
-<p>Kombinationen af et produktions-API og et LLM til analyse er meget kraftfuldt, fordi man <strong>ikke selv skal kode kategorilogikken</strong>. Modellen klarer klassificeringen og mønstergenkendelsen – man behøver bare at stille det rigtige spørgsmål i prompten.</p>
-<p>Det interessante var også, at analysen ikke bare beskrev problemet, men pegede direkte på <strong>handlinger</strong>: hvad skal skrives om i vidensbasen, hvilke svar er uklare, og hvilke emner mangler dækning.</p>
-<hr>
-
-<h2 class="relative group">Sammenligning af de to cases
-    <div id="sammenligning-af-de-to-cases" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#sammenligning-af-de-to-cases" aria-label="Anchor">#</a>
-    </span>
-    
-</h2>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">)</span></span></span></code></pre></div></div>
+<p>De vigtigste parametre:</p>
 <table>
   <thead>
       <tr>
-          <th></th>
-          <th>Mailsystem</th>
-          <th>Chatbot-analyse</th>
+          <th>Parameter</th>
+          <th>Beskrivelse</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>Datakilde</td>
-          <td>Indkommende e-mails</td>
-          <td>CustomGPT.ai API</td>
+          <td><code>model</code></td>
+          <td>Hvilken model du vil bruge (bestemmer pris og kvalitet)</td>
       </tr>
       <tr>
-          <td>LLM&rsquo;s rolle</td>
-          <td>Vurdere og handle (real-time)</td>
-          <td>Analysere og kategorisere (batch)</td>
+          <td><code>max_tokens</code></td>
+          <td>Det maksimale antal tokens i svaret</td>
       </tr>
       <tr>
-          <td>Output</td>
-          <td>Automatisk todo-oprettelse</td>
-          <td>Visuel rapport til undervisere</td>
+          <td><code>messages</code></td>
+          <td>Samtalens historik – mindst én <code>user</code>-besked</td>
       </tr>
       <tr>
-          <td>Største udfordring</td>
-          <td>GDPR og personoplysninger</td>
-          <td>Promptdesign og datakvalitet</td>
-      </tr>
-      <tr>
-          <td>Status</td>
-          <td>Udskudt pga. juridiske krav</td>
-          <td>Gennemført</td>
+          <td><code>system</code></td>
+          <td>(valgfrit) En systeminstruktion der sætter modellens adfærd</td>
       </tr>
   </tbody>
 </table>
 
-<h2 class="relative group">Konklusion
-    <div id="konklusion" class="anchor"></div>
+<h3 class="relative group">Systemprompt: sæt konteksten
+    <div id="systemprompt-sæt-konteksten" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#konklusion" aria-label="Anchor">#</a>
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#systemprompt-s%c3%a6t-konteksten" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Med en <code>system</code>-parameter kan du fortælle modellen, hvilken rolle den skal spille:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">model</span><span class="o">=</span><span class="s2">&#34;claude-sonnet-4-6&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">system</span><span class="o">=</span><span class="s2">&#34;Du er en hjælpsom kundeservicemedarbejder for en dansk netbutik. Svar altid på dansk og hold tonen venlig og kort.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="s2">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;user&#34;</span><span class="p">,</span> <span class="s2">&#34;content&#34;</span><span class="p">:</span> <span class="s2">&#34;Hvornår ankommer min pakke?&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span></span></span></code></pre></div></div>
+<p>Systemprompten styrer tone, sprog og begrænsninger uden at det er synligt for brugeren.</p>
+
+<h2 class="relative group">Hvad kan du bruge det til?
+    <div id="hvad-kan-du-bruge-det-til" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#hvad-kan-du-bruge-det-til" aria-label="Anchor">#</a>
     </span>
     
 </h2>
-<p>Begge cases viser det samme grundmønster: <strong>et eksternt API leverer data, og et LLM giver det mening</strong>. Men de viser også, at integration i den virkelige verden kræver mere end en god idé og et par API-kald. GDPR, databehandleraftaler og organisatorisk kontekst er ikke efterskrifter – de er en del af designet.</p>
-<p>Den største takeaway er, at LLM&rsquo;er er bedst som et <strong>fortolkningslag</strong> oven på data, der allerede eksisterer – ikke som en erstatning for de systemer, der indsamler og opbevarer den.</p>
+<p>API-adgang åbner op for at bygge AI-funktioner direkte ind i dine egne applikationer:</p>
+
+<h3 class="relative group">Tekstgenerering og -opsummering
+    <div id="tekstgenerering-og--opsummering" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#tekstgenerering-og--opsummering" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Send et langt dokument og bed modellen om et kort resumé. Nyttigt til nyheder, rapporter eller mødereferater.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">tekst</span> <span class="o">=</span> <span class="s2">&#34;... [langt dokument] ...&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">model</span><span class="o">=</span><span class="s2">&#34;claude-sonnet-4-6&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="s2">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;user&#34;</span><span class="p">,</span> <span class="s2">&#34;content&#34;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&#34;Opsummer følgende tekst i tre punkter:</span><span class="se">\n\n</span><span class="si">{</span><span class="n">tekst</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span></span></span></code></pre></div></div>
+
+<h3 class="relative group">Klassifikation og tagging
+    <div id="klassifikation-og-tagging" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#klassifikation-og-tagging" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Bed modellen om at kategorisere input – f.eks. om en kundemail er en klage, et spørgsmål eller en ros.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">mail</span> <span class="o">=</span> <span class="s2">&#34;Jeg har ventet på min ordre i tre uger uden nogen opdatering!&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">model</span><span class="o">=</span><span class="s2">&#34;claude-sonnet-4-6&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">system</span><span class="o">=</span><span class="s2">&#34;Klassificer kundemails som: KLAGE, SPØRGSMÅL eller ROS. Svar kun med ét af disse ord.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="s2">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;user&#34;</span><span class="p">,</span> <span class="s2">&#34;content&#34;</span><span class="p">:</span> <span class="n">mail</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">kategori</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>  <span class="c1"># → &#34;KLAGE&#34;</span></span></span></code></pre></div></div>
+
+<h3 class="relative group">Flertrins samtale (chat)
+    <div id="flertrins-samtale-chat" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#flertrins-samtale-chat" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Du kan opbygge en hel samtalehistorik ved at sende alle tidligere beskeder med i hvert kald:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">historik</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">send_besked</span><span class="p">(</span><span class="n">bruger_besked</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">historik</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;user&#34;</span><span class="p">,</span> <span class="s2">&#34;content&#34;</span><span class="p">:</span> <span class="n">bruger_besked</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">model</span><span class="o">=</span><span class="s2">&#34;claude-sonnet-4-6&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">system</span><span class="o">=</span><span class="s2">&#34;Du er en hjælpsom assistent.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">messages</span><span class="o">=</span><span class="n">historik</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">svar</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
+</span></span><span class="line"><span class="cl">    <span class="n">historik</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;assistant&#34;</span><span class="p">,</span> <span class="s2">&#34;content&#34;</span><span class="p">:</span> <span class="n">svar</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">svar</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">send_besked</span><span class="p">(</span><span class="s2">&#34;Hvad er Python?&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">send_besked</span><span class="p">(</span><span class="s2">&#34;Kan du give et eksempel?&#34;</span><span class="p">))</span>  <span class="c1"># Modellen husker konteksten</span></span></span></code></pre></div></div>
+
+<h2 class="relative group">Struktureret output
+    <div id="struktureret-output" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#struktureret-output" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>Ofte vil du have modellens svar i et bestemt format, f.eks. JSON, så du kan behandle det programmatisk. Det gøres ved at bede om det direkte i prompten:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">model</span><span class="o">=</span><span class="s2">&#34;claude-sonnet-4-6&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;user&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;content&#34;</span><span class="p">:</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;Udtræk navn, by og alder fra denne tekst og returner som JSON:</span><span class="se">\n</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="s2">&#34;</span><span class="se">\&#34;</span><span class="s2">Maria Hansen bor i Aarhus og er 34 år gammel.</span><span class="se">\&#34;</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># → {&#34;navn&#34;: &#34;Maria Hansen&#34;, &#34;by&#34;: &#34;Aarhus&#34;, &#34;alder&#34;: 34}</span></span></span></code></pre></div></div>
+
+<h2 class="relative group">Praktiske hensyn
+    <div id="praktiske-hensyn" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#praktiske-hensyn" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p><strong>Omkostninger:</strong> Du betaler per token. Brug <code>max_tokens</code> til at begrænse udgifterne, og hold systemprompts korte.</p>
+<p><strong>Latency:</strong> Et API-kald tager typisk 0,5–3 sekunder. Til realtidsapplikationer kan du bruge <em>streaming</em>, så svar vises løbende mens modellen genererer dem.</p>
+<p><strong>Sikkerhed:</strong> Gem aldrig API-nøglen direkte i koden – brug miljøvariabler (<code>os.environ[&quot;ANTHROPIC_API_KEY&quot;]</code>) eller en secrets manager.</p>
+<p><strong>Fejlhåndtering:</strong> API&rsquo;er kan returnere fejl (rate limits, netværksfejl). Implementér retry-logik og fald-back-beskeder til brugeren.</p>
+
+<h2 class="relative group">Opsummering
+    <div id="opsummering" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#opsummering" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>At kalde et LLM-API er ikke mere kompliceret end at kalde et hvhert andet web-API. De tre kerneelementer er:</p>
+<ul>
+<li>En <strong>systemprompt</strong> der definerer modellens rolle og begrænsninger</li>
+<li>En <strong>brugerbesked</strong> med det konkrete input</li>
+<li>Parsing af <strong>svaret</strong> til brug i din applikation</li>
+</ul>
+<p>Derfra er mulighederne brede: opsummering, klassifikation, oversættelse, kodegenering, chatbots – alt hvad der kan beskrives som et sprogligt input/output-problem kan løses med et LLM-API.</p>
 
     </div>
   </section>

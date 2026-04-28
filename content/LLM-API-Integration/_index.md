@@ -1,192 +1,167 @@
 ---
-title: "LLM + Eksternt API"
-description: "To cases på hvordan man kan integrere et LLM i en eksisterende applikation via eksternt API – et mailsystem og en analyse af skolens chatbots."
+title: "LLM API-integration"
+description: "Hvordan man kalder et eksternt LLM-API og bruger sprogmodellen til konkrete opgaver i sin applikation."
 ---
 
-# LLM i eksisterende applikationer
+En stor sprogmodel (LLM) behøver ikke bo lokalt i din applikation. De fleste udbydere – Anthropic, OpenAI, Google m.fl. – stiller deres modeller til rådighed via et HTTP API, som du kan kalde fra næsten ethvert programmeringssprog. Det betyder, at du kan tilføje AI-funktioner til en eksisterende applikation uden at håndtere modelhosting selv.
 
-En af de mest praktiske anvendelser af store sprogmodeller er ikke at bygge noget helt nyt, men at **sætte dem ind i systemer der allerede eksisterer**. Frem for at erstatte kendte workflows, tilføjer LLM'en et lag af forståelse og analyse, som ellers ville kræve manuel menneskelig vurdering.
+## Hvad er et LLM-API?
 
-I dette forløb arbejdede vi med to cases, der begge illustrerer det mønster – men som også viste, at integration i praksis bringer udfordringer med sig, man ikke altid ser i teorien.
+Et LLM-API er en REST-tjeneste, der modtager en besked (en *prompt*) og returnerer modellens svar som JSON. Konceptuelt ligner det et hvilket som helst andet web-API:
 
----
+1. Du sender en HTTP POST-request med din prompt og eventuelle parametre.
+2. Serveren sender prompten videre til modellen.
+3. Du modtager svaret og bruger det i din applikation.
 
-## Case 1: Mailsystem med automatisk prioritering
+Det kræver som regel en API-nøgle til autentifikation, og du betaler per token (omtrent per ord) du sender og modtager.
 
-### Idéen
+## Eksempel: Anthropic Claude API
 
-Mange organisationer modtager store mængder e-mail, og det er tidskrævende at afgøre, hvad der kræver handling nu. Idéen var at bygge et system, der:
+Her er et minimalt Python-eksempel med Anthropics officielle SDK:
 
-1. **Lytter på indkommende mails**
-2. **Bruger et LLM til at vurdere**, om mailen er vigtig eller ej
-3. **Opretter automatisk en todo**, hvis mailen kræver handling
+```python
+import anthropic
 
-Flowet ville se sådan ud:
+client = anthropic.Anthropic(api_key="din-api-nøgle")
 
+response = client.messages.create(
+    model="claude-sonnet-4-6",
+    max_tokens=1024,
+    messages=[
+        {"role": "user", "content": "Forklar hvad et REST API er i to sætninger."}
+    ]
+)
+
+print(response.content[0].text)
 ```
-Ny mail ankommer
-     │
-     ▼
-LLM analyserer indhold
-     │
-     ├─ Vigtig → Opret todo-opgave
-     │
-     └─ Ikke vigtig → Ignorer / arkiver
-```
 
-### Teknisk tilgang
+De vigtigste parametre:
 
-Modellen ville få mailens emne og brødtekst som input og returnere en struktureret vurdering:
+| Parameter | Beskrivelse |
+|---|---|
+| `model` | Hvilken model du vil bruge (bestemmer pris og kvalitet) |
+| `max_tokens` | Det maksimale antal tokens i svaret |
+| `messages` | Samtalens historik – mindst én `user`-besked |
+| `system` | (valgfrit) En systeminstruktion der sætter modellens adfærd |
+
+### Systemprompt: sæt konteksten
+
+Med en `system`-parameter kan du fortælle modellen, hvilken rolle den skal spille:
 
 ```python
 response = client.messages.create(
-    model="claude-opus-4-7",
-    max_tokens=256,
-    system=(
-        "Du er en assistent, der vurderer om en e-mail kræver handling. "
-        "Svar udelukkende med JSON: {\"vigtig\": true/false, \"grund\": \"...\", \"todo\": \"...\"}"
-    ),
+    model="claude-sonnet-4-6",
+    max_tokens=1024,
+    system="Du er en hjælpsom kundeservicemedarbejder for en dansk netbutik. Svar altid på dansk og hold tonen venlig og kort.",
     messages=[
-        {"role": "user", "content": f"Emne: {subject}\n\n{body}"}
+        {"role": "user", "content": "Hvornår ankommer min pakke?"}
     ]
 )
 ```
 
-Hvis `vigtig` er `true`, ville systemet kalde et eksternt opgave-API (fx Todoist eller Microsoft To Do) og oprette en opgave med den formulering, modellen foreslår.
+Systemprompten styrer tone, sprog og begrænsninger uden at det er synligt for brugeren.
 
-### Udfordringerne – GDPR og datahåndtering
+## Hvad kan du bruge det til?
 
-Det var her, det for alvor blev komplekst. E-mails indeholder **personoplysninger**, og det rejste en række problemer:
+API-adgang åbner op for at bygge AI-funktioner direkte ind i dine egne applikationer:
 
-- **Databehandleraftale**: Sender man mailindhold til en ekstern LLM-udbyder (Anthropic, OpenAI osv.), er man forpligtet til at have en databehandleraftale på plads – og sikre sig, at data ikke bruges til træning.
-- **Formål og lovhjemmel**: GDPR kræver, at der er et klart og legitimt formål med behandlingen. "Vi vil gerne sortere mails med AI" er ikke i sig selv tilstrækkeligt – der skal være et juridisk grundlag.
-- **Minimering**: Man bør kun sende det nødvendige til modellen – ikke hele mailkæden med historik, CC-adresser og vedhæftede filer.
-- **Gennemsigtighed**: Afsendere bør informeres om, at deres mails behandles automatisk af AI.
-
-Disse udfordringer betød, at systemet i sin fulde form var svært at implementere ansvarligt uden en grundig juridisk og organisatorisk afklaring først. Det er et godt eksempel på, at **teknisk muligt ≠ lovligt eller etisk forsvarligt**.
-
-### Hvad vi lærte
-
-GDPR er ikke en detalje, man tilføjer til sidst. Det er en designbegrænsning, der skal tænkes ind fra starten. Maildelen viste, at LLM-integration i systemer med personoplysninger kræver et langt større forarbejde, end selve koden gør.
-
----
-
-## Case 2: Analyse af skolens chatbots
-
-### Baggrunden
-
-På skolen har alle semestre på datamatikeruddannelsen adgang til en chatbot bygget med **CustomGPT.ai**. Botten er specialiseret til hvert semesters indhold og hjælper studerende med faglige spørgsmål.
-
-Problemet var: **vi vidste ikke, hvad der faktisk blev spurgt om**. Hvilke emner stillede de studerende mest spørgsmål til? Hvad forstod de ikke godt nok? Og kunne svarene blive bedre?
-
-### Løsningen
-
-CustomGPT.ai stiller et API til rådighed, der giver adgang til alle forespørgsler (prompts) der er sendt til botten. Vi brugte det API til at hente historik og sendte det videre til et LLM, der skulle:
-
-- **Kategorisere** spørgsmålene i emner
-- **Identificere mønstre** – hvad spørges der gentagne gange om?
-- **Foreslå forbedringer** til bottens svar, så de bliver mere afklarende
-
-### Arkitektur
-
-```
-CustomGPT.ai API
-      │
-      │  GET /conversations  (alle forespørgsler)
-      ▼
-Python-script henter og strukturerer data
-      │
-      ▼
-LLM analyserer batch af spørgsmål
-      │
-      ├─ Kategorier & temaer
-      ├─ Hyppigt stillede spørgsmål
-      └─ Forslag til svarforbedringer
-      │
-      ▼
-Visuel rapport (grafer, ordsky, tabel)
-```
-
-### Datahentning fra CustomGPT.ai
+### Tekstgenerering og -opsummering
+Send et langt dokument og bed modellen om et kort resumé. Nyttigt til nyheder, rapporter eller mødereferater.
 
 ```python
-import requests
+tekst = "... [langt dokument] ..."
 
-CUSTOMGPT_API_KEY = "..."
-PROJECT_ID = "..."
-
-def fetch_conversations() -> list[dict]:
-    url = f"https://app.customgpt.ai/api/v1/projects/{PROJECT_ID}/conversations"
-    headers = {"Authorization": f"Bearer {CUSTOMGPT_API_KEY}"}
-
-    all_messages = []
-    page = 1
-
-    while True:
-        response = requests.get(url, headers=headers, params={"page": page})
-        data = response.json()
-        messages = data.get("data", {}).get("data", [])
-        if not messages:
-            break
-        all_messages.extend(messages)
-        page += 1
-
-    return all_messages
+response = client.messages.create(
+    model="claude-sonnet-4-6",
+    max_tokens=300,
+    messages=[
+        {"role": "user", "content": f"Opsummer følgende tekst i tre punkter:\n\n{tekst}"}
+    ]
+)
 ```
 
-### LLM-analyse af spørgsmålene
-
-Spørgsmålene sendes i batches til modellen med en struktureret prompt:
+### Klassifikation og tagging
+Bed modellen om at kategorisere input – f.eks. om en kundemail er en klage, et spørgsmål eller en ros.
 
 ```python
-def analyse_questions(questions: list[str]) -> dict:
-    joined = "\n".join(f"- {q}" for q in questions)
+mail = "Jeg har ventet på min ordre i tre uger uden nogen opdatering!"
+
+response = client.messages.create(
+    model="claude-sonnet-4-6",
+    max_tokens=50,
+    system="Klassificer kundemails som: KLAGE, SPØRGSMÅL eller ROS. Svar kun med ét af disse ord.",
+    messages=[
+        {"role": "user", "content": mail}
+    ]
+)
+
+kategori = response.content[0].text.strip()  # → "KLAGE"
+```
+
+### Flertrins samtale (chat)
+Du kan opbygge en hel samtalehistorik ved at sende alle tidligere beskeder med i hvert kald:
+
+```python
+historik = []
+
+def send_besked(bruger_besked):
+    historik.append({"role": "user", "content": bruger_besked})
 
     response = client.messages.create(
-        model="claude-opus-4-7",
+        model="claude-sonnet-4-6",
         max_tokens=1024,
-        system=(
-            "Du er en uddannelsesanalytiker. Du får en liste af spørgsmål stillet til en faglig chatbot. "
-            "Returner JSON med: {\"kategorier\": [...], \"hyppige_temaer\": [...], \"forbedringsforslag\": [...]}"
-        ),
-        messages=[
-            {"role": "user", "content": f"Spørgsmål:\n{joined}"}
-        ]
+        system="Du er en hjælpsom assistent.",
+        messages=historik
     )
 
-    return json.loads(response.content[0].text)
+    svar = response.content[0].text
+    historik.append({"role": "assistant", "content": svar})
+    return svar
+
+print(send_besked("Hvad er Python?"))
+print(send_besked("Kan du give et eksempel?"))  # Modellen husker konteksten
 ```
 
-### Det visuelle output
+## Struktureret output
 
-Resultatet af analysen blev visualiseret, så det var nemt at handle på:
+Ofte vil du have modellens svar i et bestemt format, f.eks. JSON, så du kan behandle det programmatisk. Det gøres ved at bede om det direkte i prompten:
 
-- **Søjlediagram** over de mest stillede emner (matplotlib)
-- **Tabel** med konkrete forbedringsforslag til bottens svar
-- **Ordsky** over de hyppigste nøgleord i spørgsmålene
+```python
+response = client.messages.create(
+    model="claude-sonnet-4-6",
+    max_tokens=200,
+    messages=[
+        {
+            "role": "user",
+            "content": (
+                "Udtræk navn, by og alder fra denne tekst og returner som JSON:\n"
+                "\"Maria Hansen bor i Aarhus og er 34 år gammel.\""
+            )
+        }
+    ]
+)
 
-Dette gav et konkret billede af, hvad de studerende kæmpede med, og hvilke dele af pensum der trængte til bedre forklaringer i bottens vidensbase.
+import json
+data = json.loads(response.content[0].text)
+# → {"navn": "Maria Hansen", "by": "Aarhus", "alder": 34}
+```
 
-### Hvad vi lærte
+## Praktiske hensyn
 
-Kombinationen af et produktions-API og et LLM til analyse er meget kraftfuldt, fordi man **ikke selv skal kode kategorilogikken**. Modellen klarer klassificeringen og mønstergenkendelsen – man behøver bare at stille det rigtige spørgsmål i prompten.
+**Omkostninger:** Du betaler per token. Brug `max_tokens` til at begrænse udgifterne, og hold systemprompts korte.
 
-Det interessante var også, at analysen ikke bare beskrev problemet, men pegede direkte på **handlinger**: hvad skal skrives om i vidensbasen, hvilke svar er uklare, og hvilke emner mangler dækning.
+**Latency:** Et API-kald tager typisk 0,5–3 sekunder. Til realtidsapplikationer kan du bruge *streaming*, så svar vises løbende mens modellen genererer dem.
 
----
+**Sikkerhed:** Gem aldrig API-nøglen direkte i koden – brug miljøvariabler (`os.environ["ANTHROPIC_API_KEY"]`) eller en secrets manager.
 
-## Sammenligning af de to cases
+**Fejlhåndtering:** API'er kan returnere fejl (rate limits, netværksfejl). Implementér retry-logik og fald-back-beskeder til brugeren.
 
-| | Mailsystem | Chatbot-analyse |
-|---|---|---|
-| Datakilde | Indkommende e-mails | CustomGPT.ai API |
-| LLM's rolle | Vurdere og handle (real-time) | Analysere og kategorisere (batch) |
-| Output | Automatisk todo-oprettelse | Visuel rapport til undervisere |
-| Største udfordring | GDPR og personoplysninger | Promptdesign og datakvalitet |
-| Status | Udskudt pga. juridiske krav | Gennemført |
+## Opsummering
 
-## Konklusion
+At kalde et LLM-API er ikke mere kompliceret end at kalde et hvhert andet web-API. De tre kerneelementer er:
 
-Begge cases viser det samme grundmønster: **et eksternt API leverer data, og et LLM giver det mening**. Men de viser også, at integration i den virkelige verden kræver mere end en god idé og et par API-kald. GDPR, databehandleraftaler og organisatorisk kontekst er ikke efterskrifter – de er en del af designet.
+- En **systemprompt** der definerer modellens rolle og begrænsninger
+- En **brugerbesked** med det konkrete input
+- Parsing af **svaret** til brug i din applikation
 
-Den største takeaway er, at LLM'er er bedst som et **fortolkningslag** oven på data, der allerede eksisterer – ikke som en erstatning for de systemer, der indsamler og opbevarer den.
+Derfra er mulighederne brede: opsummering, klassifikation, oversættelse, kodegenering, chatbots – alt hvad der kan beskrives som et sprogligt input/output-problem kan løses med et LLM-API.
