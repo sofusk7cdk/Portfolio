@@ -31,9 +31,14 @@
   weight = 40
 
 [[main]]
-  name = "LLM + API"
+  name = "LLM API integration"
   pageRef = "/llm-api-integration"
   weight = 50
+
+[[main]]
+  name = "LLM + API + implementering"
+  pageRef = "/llm-api-implementering"
+  weight = 60
 
 #[[main]]
 #  name = "Blog"
