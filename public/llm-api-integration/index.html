@@ -218,7 +218,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "682"
+    "wordCount": "366"
   }]
   </script>
 
@@ -678,57 +678,6 @@
 </ol>
 <p>Det kræver som regel en API-nøgle til autentifikation, og du betaler per token (omtrent per ord) du sender og modtager.</p>
 
-<h2 class="relative group">Eksempel: Anthropic Claude API
-    <div id="eksempel-anthropic-claude-api" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#eksempel-anthropic-claude-api" aria-label="Anchor">#</a>
-    </span>
-    
-</h2>
-<p>Her er et minimalt Python-eksempel med Anthropics officielle SDK:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">anthropic</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">client</span> <span class="o">=</span> <span class="n">anthropic</span><span class="o">.</span><span class="n">Anthropic</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s2">&#34;din-api-nøgle&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="n">model</span><span class="o">=</span><span class="s2">&#34;claude-sonnet-4-6&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="s2">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;user&#34;</span><span class="p">,</span> <span class="s2">&#34;content&#34;</span><span class="p">:</span> <span class="s2">&#34;Forklar hvad et REST API er i to sætninger.&#34;</span><span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">)</span></span></span></code></pre></div></div>
-<p>De vigtigste parametre:</p>
-<table>
-  <thead>
-      <tr>
-          <th>Parameter</th>
-          <th>Beskrivelse</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>model</code></td>
-          <td>Hvilken model du vil bruge (bestemmer pris og kvalitet)</td>
-      </tr>
-      <tr>
-          <td><code>max_tokens</code></td>
-          <td>Det maksimale antal tokens i svaret</td>
-      </tr>
-      <tr>
-          <td><code>messages</code></td>
-          <td>Samtalens historik – mindst én <code>user</code>-besked</td>
-      </tr>
-      <tr>
-          <td><code>system</code></td>
-          <td>(valgfrit) En systeminstruktion der sætter modellens adfærd</td>
-      </tr>
-  </tbody>
-</table>
-
 <h3 class="relative group">Systemprompt: sæt konteksten
     <div id="systemprompt-sæt-konteksten" class="anchor"></div>
     
@@ -739,14 +688,6 @@
     
 </h3>
 <p>Med en <code>system</code>-parameter kan du fortælle modellen, hvilken rolle den skal spille:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="n">model</span><span class="o">=</span><span class="s2">&#34;claude-sonnet-4-6&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">system</span><span class="o">=</span><span class="s2">&#34;Du er en hjælpsom kundeservicemedarbejder for en dansk netbutik. Svar altid på dansk og hold tonen venlig og kort.&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="s2">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;user&#34;</span><span class="p">,</span> <span class="s2">&#34;content&#34;</span><span class="p">:</span> <span class="s2">&#34;Hvornår ankommer min pakke?&#34;</span><span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span></span></span></code></pre></div></div>
 <p>Systemprompten styrer tone, sprog og begrænsninger uden at det er synligt for brugeren.</p>
 
 <h2 class="relative group">Hvad kan du bruge det til?
@@ -770,67 +711,6 @@
     
 </h3>
 <p>Send et langt dokument og bed modellen om et kort resumé. Nyttigt til nyheder, rapporter eller mødereferater.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">tekst</span> <span class="o">=</span> <span class="s2">&#34;... [langt dokument] ...&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="n">model</span><span class="o">=</span><span class="s2">&#34;claude-sonnet-4-6&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="s2">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;user&#34;</span><span class="p">,</span> <span class="s2">&#34;content&#34;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&#34;Opsummer følgende tekst i tre punkter:</span><span class="se">\n\n</span><span class="si">{</span><span class="n">tekst</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span></span></span></code></pre></div></div>
-
-<h3 class="relative group">Klassifikation og tagging
-    <div id="klassifikation-og-tagging" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#klassifikation-og-tagging" aria-label="Anchor">#</a>
-    </span>
-    
-</h3>
-<p>Bed modellen om at kategorisere input – f.eks. om en kundemail er en klage, et spørgsmål eller en ros.</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">mail</span> <span class="o">=</span> <span class="s2">&#34;Jeg har ventet på min ordre i tre uger uden nogen opdatering!&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="n">model</span><span class="o">=</span><span class="s2">&#34;claude-sonnet-4-6&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">system</span><span class="o">=</span><span class="s2">&#34;Klassificer kundemails som: KLAGE, SPØRGSMÅL eller ROS. Svar kun med ét af disse ord.&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="s2">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;user&#34;</span><span class="p">,</span> <span class="s2">&#34;content&#34;</span><span class="p">:</span> <span class="n">mail</span><span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">kategori</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>  <span class="c1"># → &#34;KLAGE&#34;</span></span></span></code></pre></div></div>
-
-<h3 class="relative group">Flertrins samtale (chat)
-    <div id="flertrins-samtale-chat" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
-        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#flertrins-samtale-chat" aria-label="Anchor">#</a>
-    </span>
-    
-</h3>
-<p>Du kan opbygge en hel samtalehistorik ved at sende alle tidligere beskeder med i hvert kald:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">historik</span> <span class="o">=</span> <span class="p">[]</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">send_besked</span><span class="p">(</span><span class="n">bruger_besked</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="n">historik</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;user&#34;</span><span class="p">,</span> <span class="s2">&#34;content&#34;</span><span class="p">:</span> <span class="n">bruger_besked</span><span class="p">})</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">        <span class="n">model</span><span class="o">=</span><span class="s2">&#34;claude-sonnet-4-6&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="n">system</span><span class="o">=</span><span class="s2">&#34;Du er en hjælpsom assistent.&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="n">messages</span><span class="o">=</span><span class="n">historik</span>
-</span></span><span class="line"><span class="cl">    <span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="n">svar</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
-</span></span><span class="line"><span class="cl">    <span class="n">historik</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;assistant&#34;</span><span class="p">,</span> <span class="s2">&#34;content&#34;</span><span class="p">:</span> <span class="n">svar</span><span class="p">})</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">svar</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">send_besked</span><span class="p">(</span><span class="s2">&#34;Hvad er Python?&#34;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">send_besked</span><span class="p">(</span><span class="s2">&#34;Kan du give et eksempel?&#34;</span><span class="p">))</span>  <span class="c1"># Modellen husker konteksten</span></span></span></code></pre></div></div>
 
 <h2 class="relative group">Struktureret output
     <div id="struktureret-output" class="anchor"></div>
@@ -842,23 +722,6 @@
     
 </h2>
 <p>Ofte vil du have modellens svar i et bestemt format, f.eks. JSON, så du kan behandle det programmatisk. Det gøres ved at bede om det direkte i prompten:</p>
-<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">messages</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="n">model</span><span class="o">=</span><span class="s2">&#34;claude-sonnet-4-6&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">messages</span><span class="o">=</span><span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;role&#34;</span><span class="p">:</span> <span class="s2">&#34;user&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;content&#34;</span><span class="p">:</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">                <span class="s2">&#34;Udtræk navn, by og alder fra denne tekst og returner som JSON:</span><span class="se">\n</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">                <span class="s2">&#34;</span><span class="se">\&#34;</span><span class="s2">Maria Hansen bor i Aarhus og er 34 år gammel.</span><span class="se">\&#34;</span><span class="s2">&#34;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
-</span></span><span class="line"><span class="cl"><span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># → {&#34;navn&#34;: &#34;Maria Hansen&#34;, &#34;by&#34;: &#34;Aarhus&#34;, &#34;alder&#34;: 34}</span></span></span></code></pre></div></div>
 
 <h2 class="relative group">Praktiske hensyn
     <div id="praktiske-hensyn" class="anchor"></div>
