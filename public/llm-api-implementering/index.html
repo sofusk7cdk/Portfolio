@@ -15,13 +15,13 @@
 
   
   
-    <title> &middot; Blowfish</title>
-    <meta name="title" content=" &middot; Blowfish">
+    <title>LLM API-implementering &middot; Blowfish</title>
+    <meta name="title" content="LLM API-implementering &middot; Blowfish">
   
 
   
   
-    <meta name="description" content="Min Datamatiker Portfolio">
+    <meta name="description" content="Hvordan jeg har implementeret kald til en lokal LLM via mit eget FastAPI og håndterer svaret i min applikation.">
   
   
   
@@ -41,15 +41,15 @@
   
   <meta property="og:url" content="http://localhost:1313/Portfolio/llm-api-implementering/">
   <meta property="og:site_name" content="Blowfish">
-  <meta property="og:title" content="Blowfish">
-  <meta property="og:description" content="Min Datamatiker Portfolio">
+  <meta property="og:title" content="LLM API-implementering">
+  <meta property="og:description" content="Hvordan jeg har implementeret kald til en lokal LLM via mit eget FastAPI og håndterer svaret i min applikation.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="website">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Blowfish">
-  <meta name="twitter:description" content="Min Datamatiker Portfolio">
+  <meta name="twitter:title" content="LLM API-implementering">
+  <meta name="twitter:description" content="Hvordan jeg har implementeret kald til en lokal LLM via mit eget FastAPI og håndterer svaret i min applikation.">
 
   
   
@@ -199,10 +199,10 @@
   [{
     "@context": "https://schema.org",
     "@type": "Article",
-    "articleSection": "",
-    "name": "",
-    "headline": "",
-    
+    "articleSection": "LLM API-implementering",
+    "name": "LLM API-implementering",
+    "headline": "LLM API-implementering",
+    "description": "Hvordan jeg har implementeret kald til en lokal LLM via mit eget FastAPI og håndterer svaret i min applikation.",
     "inLanguage": "en",
     "url" : "http://localhost:1313/Portfolio/llm-api-implementering/",
     "author" : {
@@ -218,7 +218,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "0"
+    "wordCount": "397"
   }]
   </script>
 
@@ -375,7 +375,7 @@
       
       class="flex items-center bf-icon-color-hover"
       aria-label="LLM &#43; API &#43; implementering"
-      title="">
+      title="LLM API-implementering">
       
       
         <span class="text-base font-medium break-normal">
@@ -571,7 +571,7 @@
         
         class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
         
-        <span title="" class="text-2xl font-bold tracking-tight">
+        <span title="LLM API-implementering" class="text-2xl font-bold tracking-tight">
           LLM + API + implementering
         </span>
         
@@ -620,7 +620,7 @@
   
   <header>
     
-    <h1 class="mt-5 text-4xl font-extrabold text-neutral-900 dark:text-neutral"></h1>
+    <h1 class="mt-5 text-4xl font-extrabold text-neutral-900 dark:text-neutral">LLM API-implementering</h1>
     <div class="mt-1 mb-2 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
       
 
@@ -660,6 +660,95 @@
     
     <div class="min-w-0 min-h-0 max-w-prose w-full">
       
+<h2 class="relative group">Valget: lokal LLM frem for eksternt API
+    <div id="valget-lokal-llm-frem-for-eksternt-api" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#valget-lokal-llm-frem-for-eksternt-api" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>Til dette projekt valgte jeg at køre min sprogmodel lokalt via <strong>Ollama</strong> frem for at kalde et eksternt API som OpenAI eller Anthropic. Grunden er simpel: et eksternt API koster penge per token, og da jeg primært bruger dette til udvikling og læring, ville omkostningerne hurtigt løbe op.</p>
+<p>Jeg er godt klar over, at en lokal model som <code>llama3.2</code> ikke er på niveau med f.eks. GPT-4 eller Claude – svarene er generelt mindre nuancerede, og modellen klarer komplekse ræsonnementer dårligere. Det er en bevidst afvejning jeg ofrer noget svarkvalitet for til gengæld at kunne eksperimentere frit uden at tænke på udgifter.</p>
+
+<h2 class="relative group">Arkitekturen
+    <div id="arkitekturen" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#arkitekturen" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>Jeg har bygget et lille <strong>FastAPI</strong>-lag, der sidder imellem min applikation og den lokale Ollama-server. Det giver mig ét samlet sted at styre hvilken model der bruges, hvilken systemprompt der sendes med, og hvordan fejl håndteres.</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Klient  →  FastAPI (/ask)  →  Ollama (localhost:11434)  →  llama3.2
+</span></span><span class="line"><span class="cl">                ↑
+</span></span><span class="line"><span class="cl">        systemprompt fra .md-fil</span></span></code></pre></div></div>
+
+<h2 class="relative group">Implementeringen
+    <div id="implementeringen" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#implementeringen" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>Endpointet <code>/ask</code> modtager en prompt og et valgfrit modelnavn, læser systemprompt fra en ekstern markdown-fil og videresender det hele til Ollamas <code>/api/generate</code>:</p>
+<div class="highlight-wrapper"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="nd">@app.post</span><span class="p">(</span><span class="s2">&#34;/ask&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">ask_local_llm</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">PromptRequest</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">url</span> <span class="o">=</span> <span class="s2">&#34;http://localhost:11434/api/generate&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">system_prompt</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;prompts/praktik_system_prompt.md&#34;</span><span class="p">,</span> <span class="s2">&#34;r&#34;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&#34;utf-8&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">system_prompt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;Advarsel: Kunne ikke finde system prompt filen.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;model&#34;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>   <span class="c1"># standard: &#34;llama3.2&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;prompt&#34;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">prompt</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;system&#34;</span><span class="p">:</span> <span class="n">system_prompt</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;stream&#34;</span><span class="p">:</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">{</span><span class="s2">&#34;response&#34;</span><span class="p">:</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;response&#34;</span><span class="p">,</span> <span class="s2">&#34;Intet svar fundet i JSON&#34;</span><span class="p">)}</span></span></span></code></pre></div></div>
+<p>Ollama returnerer et JSON-objekt, og jeg trækker svaret ud via <code>data.get(&quot;response&quot;)</code>. Hvis Ollama ikke er tilgængelig, kastes en <code>HTTPException</code> med en beskrivende fejlbesked.</p>
+
+<h2 class="relative group">Systemprompt fra fil
+    <div id="systemprompt-fra-fil" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#systemprompt-fra-fil" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>I stedet for at hardcode systempromptens indhold direkte i koden læser jeg den fra en separat <code>.md</code>-fil. Det gør det nemt at justere modellens rolle og adfærd uden at ændre i Python-koden – man redigerer blot filen og genstarter endpointet.</p>
+
+<h2 class="relative group">Hvad jeg ville have gjort anderledes med et eksternt API
+    <div id="hvad-jeg-ville-have-gjort-anderledes-med-et-eksternt-api" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#hvad-jeg-ville-have-gjort-anderledes-med-et-eksternt-api" aria-label="Anchor">#</a>
+    </span>
+    
+</h2>
+<p>Havde jeg valgt et eksternt API, ville flowet have været næsten identisk – forskellen er primært:</p>
+<ul>
+<li><strong>Autentifikation:</strong> en API-nøgle i en miljøvariabel i stedet for ingen autentifikation til localhost.</li>
+<li><strong>Svarformat:</strong> OpenAI og Anthropic bruger <code>choices[0].message.content</code> frem for <code>response</code>.</li>
+<li><strong>Svarqualitet:</strong> markant bedre, særligt på komplekse eller flersprogede opgaver.</li>
+</ul>
+<p>Arkitekturen med et FastAPI-lag imellem gør det let at skifte fra lokal til ekstern model på et senere tidspunkt – man ændrer blot URL og payload-format et sted.</p>
+
     </div>
   </section>
 
