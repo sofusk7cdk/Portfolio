@@ -1,0 +1,25 @@
+<div class="sidebar-inner">
+  <a href="{{ "" | relLangURL }}" class="sidebar-title">
+    {{ site.Title | markdownify }}
+  </a>
+  <nav class="sidebar-links">
+    {{ range .Site.Menus.main }}
+      <a href="{{ .URL }}" class="sidebar-link">
+        {{ .Name | markdownify }}
+      </a>
+    {{ end }}
+  </nav>
+  <div class="sidebar-bottom">
+    {{ if site.Params.enableSearch | default false }}
+      <button id="search-button" aria-label="Search" class="sidebar-icon" title="{{ i18n "search.open_button_title" }}">
+        {{ partial "icon.html" "search" }}
+      </button>
+    {{ end }}
+    {{ if site.Params.footer.showAppearanceSwitcher | default false }}
+      <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="sidebar-icon">
+        <div class="flex dark:hidden">{{ partial "icon.html" "moon" }}</div>
+        <div class="hidden dark:flex">{{ partial "icon.html" "sun" }}</div>
+      </button>
+    {{ end }}
+  </div>
+</div>

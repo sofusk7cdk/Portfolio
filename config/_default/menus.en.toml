@@ -40,6 +40,12 @@
   pageRef = "/llm-api-implementering"
   weight = 60
 
+[[main]]
+  name = "Spec Driven Dev"
+  pageRef = "/Spec-Driven-Dev"
+  weight = 70
+
+
 #[[main]]
 #  name = "Blog"
 #  pageRef = "posts"
