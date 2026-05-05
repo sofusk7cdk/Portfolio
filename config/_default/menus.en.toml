@@ -44,6 +44,10 @@
   name = "Spec Driven Dev"
   pageRef = "/Spec-Driven-Dev"
   weight = 70
+  [[main]]
+name = "Virksomhedsoplæg"
+  pageRef = "/Virksomhedsoplæg"
+  weight = 80
 
 
 #[[main]]
