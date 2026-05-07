@@ -26,7 +26,7 @@ Systemprompten styrer tone, sprog og begrænsninger uden at det er synligt for b
 API-adgang åbner op for at bygge AI-funktioner direkte ind i dine egne applikationer:
 
 ### Tekstgenerering og -opsummering
-Send et langt dokument og bed modellen om et kort resumé. Nyttigt til nyheder, rapporter eller mødereferater.
+Send et langt dokument og bed modellen om et kort resume. Nyttigt til nyheder, rapporter eller mødereferater.
 
 
 ## Struktureret output

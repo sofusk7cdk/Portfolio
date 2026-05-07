@@ -15,7 +15,7 @@ En kodeagent kombinerer en stor sprogmodel med evnen til at:
 - **Søge i kodebasen** for at forstå arkitektur og afhængigheder
 - **Iterere selvstændigt** – fejler noget, prøver agenten igen
 
-Det adskiller sig fra et simpelt chatvindue, fordi agenten opererer i dit faktiske udviklingsmiljø frem for i en isoleret sandbox.
+Det adskiller sig fra et simpelt chatvindue, fordi agenten opererer i dit faktiske udviklingsmiljø.
 
 ## De agenter vi arbejdede med
 
@@ -52,7 +52,7 @@ Det var tydeligt, at de to agenter har forskellig "stil" – Claude tenderer mod
 
 ### Trin 3: Meditationsopgaven
 
-Vores lærer stillede os en selvstændig opgave: vi skulle vælge **én kodeagent** og bruge den til at bygge en **quiz** inspireret af en eksisterende meditationshjemmeside – i hvert vores helt nye projekt. Formålet var at undersøge, hvordan det egentlig er at arbejde med en agent på en opgave man ikke selv har specificeret til mindste detalje.
+Vores lærer stillede os en selvstændig opgave: vi skulle vælge **en kodeagent** og bruge den til at bygge en **quiz** inspireret af en eksisterende meditationshjemmeside – i hvert vores helt nye projekt. Formålet var at undersøge, hvordan det egentlig er at arbejde med en agent på en opgave man ikke selv har specificeret til mindste detalje.
 
 Jeg valgte **Claude Code** og brugte den til at bygge quizzen fra bunden i et nyt projekt. Erfaringerne:
 
