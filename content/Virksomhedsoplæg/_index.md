@@ -3,11 +3,11 @@ title: "Virksomhedsoplæg"
 ---
 
 
-# AI-drevne løsninger til event- og bryllupsbranchen
+## AI-drevne løsninger til event- og bryllupsbranchen
 
-## Introduktion
+### Introduktion
 
-I forbindelse med faget *AIDA – AI Drevne Applikationer* havde vi besøg af virksomheden, som fortalte om deres arbejde inden for events, bryllupper og administration af et årligt julemarked.
+Vi havde vi besøg af virksomheden E.G, som fortalte om deres arbejde inden for events, bryllupper og administration af et årligt julemarked.
 
 Virksomheden arbejder blandt andet med:
 
@@ -20,9 +20,9 @@ Formålet med besøget var at undersøge, hvordan AI-løsninger potentielt kunne
 
 ---
 
-# AI-løsninger til julemarked og administration
+## AI-løsninger til julemarked og administration
 
-## AI til håndtering af standholdere
+### AI til håndtering af standholdere
 
 Virksomheden afholder hvert år et julemarked, hvor omkring 80–90 standholdere skal kontaktes for at høre, om de ønsker at deltage igen.
 
@@ -32,7 +32,7 @@ Dette indebærer:
 - administration af pladser
 - koordinering af praktiske oplysninger
 
-### Mulig AI-løsning
+#### Mulig AI-løsning
 
 Et AI-understøttet administrationssystem kunne hjælpe med at:
 
@@ -42,16 +42,7 @@ Et AI-understøttet administrationssystem kunne hjælpe med at:
 - organisere standholdere efter kategori
 - foreslå placeringer af boder baseret på tidligere data
 
-### Teknologier
-
-Mulige teknologier kunne være:
-
-- NLP (Natural Language Processing)
-- Machine Learning
-- automatiseret e-mailhåndtering
-- databaseintegration
-
-### Fordele
+#### Fordele
 
 - Mindre manuelt arbejde
 - Hurtigere administration
@@ -60,7 +51,7 @@ Mulige teknologier kunne være:
 
 ---
 
-# AI til logistik og lagerstyring
+## AI til logistik og lagerstyring
 
 Ved større events og bryllupper håndteres store mængder udstyr såsom:
 
@@ -71,7 +62,7 @@ Ved større events og bryllupper håndteres store mængder udstyr såsom:
 
 Det kan være svært at holde overblik over lagerstatus og planlægning.
 
-## Mulig AI-løsning
+### Mulig AI-løsning
 
 Et intelligent lager- og logistiksystem kunne:
 
@@ -81,13 +72,7 @@ Et intelligent lager- og logistiksystem kunne:
 - planlægge transport
 - advare om manglende udstyr
 
-### AI-funktioner
-
-- Forecasting med Machine Learning
-- Computer Vision til scanning/genkendelse af udstyr
-- Analyse af tidligere events og forbrugsmønstre
-
-### Fordele
+#### Fordele
 
 - Færre fejl
 - Bedre ressourceudnyttelse
@@ -96,7 +81,7 @@ Et intelligent lager- og logistiksystem kunne:
 
 ---
 
-# AI og kundekontakt
+## AI og kundekontakt
 
 Under besøget blev det tydeligt, at personlig kundekontakt er en meget vigtig del af virksomheden — især ved bryllupper og større events.
 
@@ -111,9 +96,9 @@ I stedet giver det mere mening at bruge AI som et internt støtteværktøj for m
 
 ---
 
-# AI som støtteværktøj
+## AI som støtteværktøj
 
-## AI-genererede svarforslag
+### AI-genererede svarforslag
 
 AI kunne hjælpe medarbejderne ved at:
 
@@ -124,7 +109,7 @@ AI kunne hjælpe medarbejderne ved at:
 
 Medarbejderen kan derefter selv tilpasse svaret og bevare den personlige kontakt med kunden.
 
-### Fordele
+#### Fordele
 
 - Hurtigere svartider
 - Mindre administrativt arbejde
@@ -132,7 +117,7 @@ Medarbejderen kan derefter selv tilpasse svaret og bevare den personlige kontakt
 
 ---
 
-# Intelligent CRM-system
+## Intelligent CRM-system
 
 Et AI-baseret CRM-system kunne hjælpe virksomheden med at holde styr på:
 
@@ -149,7 +134,7 @@ AI kunne samtidig foreslå:
 
 ---
 
-# Automatisk mødeopsummering
+## Automatisk mødeopsummering
 
 Ved møder med kunder kunne AI:
 
@@ -161,54 +146,7 @@ Dette ville give medarbejderen mulighed for at fokusere mere på kunden fremfor 
 
 ---
 
-# Hvordan AI kan hjælpe udviklere
-
-AI kan også hjælpe udviklerne bag systemerne.
-
-## Eksempler
-
-### Kodehjælp
-
-AI-værktøjer kan hjælpe med:
-- kodeforslag
-- debugging
-- dokumentation
-- generering af tests
-
-### Hurtigere udvikling
-
-AI kan bruges til:
-- UI-idéer
-- databaseforslag
-- API-strukturer
-- mock data
-
-### Dataanalyse
-
-AI kan analysere:
-- kundeadfærd
-- bookingmønstre
-- lagerforbrug
-- populære services
-
----
-
-# Mulige teknologier
-
-Teknologier der potentielt kunne anvendes:
-
-- Python
-- C#
-- ASP.NET
-- React
-- SQL-databaser
-- OpenAI API
-- Azure AI Services
-- Power BI
-
----
-
-# Refleksion
+## Refleksion
 
 Besøget gav et godt indblik i, hvordan AI kan anvendes i virkelige virksomheder.
 
