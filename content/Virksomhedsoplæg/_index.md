@@ -83,7 +83,7 @@ Et intelligent lager- og logistiksystem kunne:
 
 ## AI og kundekontakt
 
-Under besøget blev det tydeligt, at personlig kundekontakt er en meget vigtig del af virksomheden — især ved bryllupper og større events.
+Under besøget blev det tydeligt, at personlig kundekontakt er en meget vigtig del af virksomheden især ved bryllupper og større events.
 
 Kunderne ønsker ofte:
 - tryghed
