@@ -1,19 +1,23 @@
 ---
-title: "Datamatiker Portfolio"
+title: "Min Portfolio"
 description: "Mit portfolio som datamatikerstuderende."
 ---
 
-# Velkommen til min portfolio!
+## Velkommen til min portfolio
 
-Jeg er datamatikerstuderende på 4. semester og synes det er fedt at kode. Her på siden kan du se et udvalg af mine projekter.
+Jeg hedder Sofus og er 21 år gammel. I dag er jeg datamatikerstuderende på 4. semester og har en stor interesse for IT. AI er banebrydende og jeg vil meget gerne være en del af det og lærer af det.  
 
-## Mine Kompentencer
-- **Sprog**: Java, JavaScript, C#(Unity)
+### Teknologier 
+- **Sprog**: Java, JavaScript, C#(Unity), Python
 - **Værktøjer**: Git, Docker
+- **Biblioteker** React
 
-## Projekter
+### Projekter
 
-### Meditation Quiz
+#### Meditation Quiz
 Et quiz-projekt bygget med hjælp fra en AI-kodeagent som del af undervisningen i kodeagenter.
 
 [Se projektet på GitHub](https://github.com/sofusk7cdk/Meditation-Quiz)
+
+#### Effektivitet for Julemarked
+Et projekt, som skal give et nemmere flow.

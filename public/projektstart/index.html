@@ -220,7 +220,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "0"
+    "wordCount": "184"
   }]
   </script>
 
@@ -288,7 +288,7 @@
       
       class="flex items-center bf-icon-color-hover"
       aria-label="Portfolio"
-      title="Datamatiker Portfolio">
+      title="Min Portfolio">
       
       
         <span class="text-base font-medium break-normal">
@@ -561,7 +561,7 @@
         
         class="flex items-center gap-4 group bf-icon-color-hover text-neutral-700 dark:text-neutral-200">
         
-        <span title="Datamatiker Portfolio" class="text-2xl font-bold tracking-tight">
+        <span title="Min Portfolio" class="text-2xl font-bold tracking-tight">
           Portfolio
         </span>
         
@@ -875,6 +875,100 @@
     
     <div class="min-w-0 min-h-0 max-w-prose w-full">
       
+<h1 class="relative group">Mit Projekt
+    <div id="mit-projekt" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#mit-projekt" aria-label="Anchor">#</a>
+    </span>
+    
+</h1>
+
+<h3 class="relative group">Hvad er projektet?
+    <div id="hvad-er-projektet" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#hvad-er-projektet" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Et Java-system der automatiserer kommunikation med
+leverandører til et julemarked.
+Systemet læser leverandørdata fra Excel, genererer
+personlige mails fra en skabelon,
+håndterer indkomne svar og skriver status tilbage til
+Excel.</p>
+
+<h3 class="relative group">Teknologier
+    <div id="teknologier" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#teknologier" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<ul>
+<li><strong>Java + Apache POI</strong> — Excel-læsning og -skrivning</li>
+<li><strong>Jakarta Mail</strong> — IMAP-integration til indkomne svar</li>
+<li><strong>Ollama (llama3.2)</strong> — lokal LLM til klassifikation
+af svar</li>
+</ul>
+
+<h3 class="relative group">Svaranalyse — regelbaseret vs. LLM
+    <div id="svaranalyse--regelbaseret-vs-llm" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#svaranalyse--regelbaseret-vs-llm" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Systemet understøtter begge tilgange via et fælles
+interface:</p>
+<ul>
+<li><strong>Regelbaseret</strong> — hurtig og forudsigelig, med
+negationscheck så &ldquo;jeg siger ikke ja&rdquo; ikke
+fejlklassificeres</li>
+<li><strong>LLM via Ollama</strong> — håndterer mere nuancerede svar
+på dansk, kører lokalt uden ekstern API</li>
+</ul>
+<p>Falder automatisk tilbage til regelbaseret hvis Ollama
+ikke er tilgængelig.</p>
+
+<h3 class="relative group">Scope
+    <div id="scope" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#scope" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Første iteration er bevidst minimal: ingen mailsending,
+ingen database, ingen GUI.
+Fokus er på kerneflowet — fra Excel-input til
+klassificeret output — med en arkitektur
+der er nem at udvide.</p>
+
+<h3 class="relative group">Overvejelser
+    <div id="overvejelser" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 -start-6 not-prose group-hover:opacity-100 select-none">
+        <a class="text-primary-300 dark:text-neutral-700 !no-underline" href="#overvejelser" aria-label="Anchor">#</a>
+    </span>
+    
+</h3>
+<p>Det mest interessante designspørgsmål var hvornår en
+LLM reelt tilfører værdi.
+For korte JA/NEJ-svar er regelbaseret analyse faktisk
+velegnet — hurtigere og mere
+forudsigelig. LLM&rsquo;en giver mening når sproget er mere
+varieret og kontekstafhængigt.</p>
+
     </div>
   </section>
 
