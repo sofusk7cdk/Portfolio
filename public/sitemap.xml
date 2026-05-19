@@ -3,12 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>http://localhost:1313/Portfolio/projektstart/</loc>
+    <loc>http://localhost:1313/Portfolio/mcp/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/Portfolio/sparring/</loc>
+    <loc>http://localhost:1313/Portfolio/projektdel1/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/Portfolio/projektdel2/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/Portfolio/projektstart/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
@@ -28,11 +38,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/Portfolio/portfolio/</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>http://localhost:1313/Portfolio/llm-api-implementering/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -43,12 +48,22 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>http://localhost:1313/Portfolio/portfolio/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/Portfolio/rag/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://localhost:1313/Portfolio/rag-demo/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/Portfolio/secret/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
